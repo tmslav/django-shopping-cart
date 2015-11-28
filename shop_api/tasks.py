@@ -6,12 +6,25 @@ from django.conf import settings
 
 from celery import shared_task
 from celery.contrib import rdb
-from .models import ShopOrders
+from .models import ShopOrders,MemcachedKeys
+from datetime import datetime, timedelta
 
 mc = pylibmc.Client([settings.CELERY_RESULT_BACKEND.split("//")[1].replace("/","")])
 
 def hash_info(site_name,user,password):
     return str(abs(hash(site_name+user+password)))
+
+
+@shared_task
+def clean_memcached():
+    time_threshold = datetime.now() - timedelta(minutes=30)
+    keys_objects = MemcachedKeys.objects.filter(last_used__lte=time_threshold)
+    for k in keys_objects:
+        try:
+            del mc[k.key]
+        except:
+            pass
+
 
 @shared_task
 def login(site_name,user_name,password):
@@ -54,3 +67,5 @@ def test_all():
     print add_product("ah.nl","tmslav@gmail.com","Laajvi123","wi228467",5)
     print add_product("hoogvliet.com","tmslav@gmail.com","Laajvi123","025950000",5)
     print add_product("cooponline.nl","tmslav@gmail.com","LAajvi123","63502",5)
+
+
