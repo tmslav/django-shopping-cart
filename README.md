@@ -41,8 +41,8 @@ CELERY_IGNORE_RESULT = False
 - run migrations to save to the database and create tables
 
 
-```./migrate.py makemigrations```
-```./migrate.py migrate```
+```./migrate.py makemigrations
+./migrate.py migrate```
 
 - configure and run redis, rabbit-mq and memcached, in deamon mode or normal mode
 - start celery workers
