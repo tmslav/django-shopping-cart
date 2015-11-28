@@ -41,16 +41,19 @@ CELERY_IGNORE_RESULT = False
 - run migrations to save to the database and create tables
 
 
-```./migrate.py makemigrations
-./migrate.py migrate```
+```./migrate.py makemigrations``` 
+
+```./migrate.py migrate```  
+
 
 - configure and run redis, rabbit-mq and memcached, in deamon mode or normal mode
 - start celery workers
-- worker that makes requests to websites ( run more to start more workers) 
-```celery -A src worker```
+- worker that makes requests to websites ( run more to start more workers)  
+ 
+```celery -A src worker```  
 
+- worker to clean memcached  
 
-- worker to clean memcached
 ```celery -A src beat```
 
 
