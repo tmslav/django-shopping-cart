@@ -39,6 +39,8 @@ CELERY_IGNORE_RESULT = False
 - pull the project to Your project and copy the src/celery file to Your Django configuration folder.
 - add the urls to Your urls file
 - run migrations to save to the database and create tables
+
+
 ```./migrate.py makemigrations```
 ```./migrate.py migrate```
 
@@ -46,9 +48,10 @@ CELERY_IGNORE_RESULT = False
 - start celery workers
 - worker that makes requests to websites ( run more to start more workers) 
 ```celery -A src worker```
+
+
 - worker to clean memcached
 ```celery -A src beat```
-
 
 
 
