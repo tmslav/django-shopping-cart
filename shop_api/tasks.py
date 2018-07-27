@@ -63,9 +63,9 @@ def check_results(return_value,database_id):
 
 
 def test_all():
-    print add_product("jumbo.com","tmslav@gmail.com","Laajvi123","134137FLS",5)
-    print add_product("ah.nl","tmslav@gmail.com","Laajvi123","wi228467",5)
-    print add_product("hoogvliet.com","tmslav@gmail.com","Laajvi123","025950000",5)
-    print add_product("cooponline.nl","tmslav@gmail.com","LAajvi123","63502",5)
+    print add_product("jumbo.com","tmslav@gmail.com","","134137FLS",5)
+    print add_product("ah.nl","tmslav@gmail.com","","wi228467",5)
+    print add_product("hoogvliet.com","tmslav@gmail.com","","025950000",5)
+    print add_product("cooponline.nl","tmslav@gmail.com","","63502",5)
 
 
